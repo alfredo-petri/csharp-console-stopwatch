@@ -1,6 +1,6 @@
 # Pastas geradas pela build
-Calculator/bin/                 
-Calculator/obj/                
+bin/                 
+obj/                
 
 # Pacotes NuGet
 *.nupkg             
