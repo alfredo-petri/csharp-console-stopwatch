@@ -6,6 +6,9 @@
         {
             MenuOptions();
         }
+
+
+    
         static string MenuOptions()
         {
             Console.WriteLine("s = segundos => 10s = 10 segundos");
@@ -16,6 +19,21 @@
 
             return data;
         }
+        
+        static void Menu()
+        {
+
+            string data = MenuOptions();
+
+            char type = data[^1];
+            string time = data.Substring(0, data.Length - 1);
+
+            Console.WriteLine("");
+            Console.WriteLine(time);
+            Console.WriteLine(type);
+            Console.WriteLine("");
+        }
+
         static void Start()
         {
             int time = 10;
