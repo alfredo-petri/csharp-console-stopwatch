@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            MenuOptions();
+            Menu();
         }
 
 
@@ -26,17 +26,38 @@
             string data = MenuOptions();
 
             char type = data[^1];
-            string time = data.Substring(0, data.Length - 1);
+            int time = int.Parse(data.Substring(0, data.Length - 1));
 
-            Console.WriteLine("");
-            Console.WriteLine(time);
-            Console.WriteLine(type);
-            Console.WriteLine("");
+            if (time == 0) {
+                Environment.Exit(0);
+            }
+
+            int multiplier = 1;
+
+            if (type == 'm')
+            {
+                multiplier = 60;
+            }
+
+
+            PreStart(time * multiplier);
         }
 
-        static void Start()
+        static void PreStart(int time)
         {
-            int time = 10;
+            Console.Clear();
+            Console.WriteLine("Ready...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Set...");
+            Thread.Sleep(1000);
+            Console.WriteLine("Go...");
+            Thread.Sleep(2500);
+            Start(time);
+        }
+
+        static void Start(int timeInSeconds)
+        {
+            int time = timeInSeconds;
             int currentTime = 0;
 
             while (currentTime != time)
@@ -47,7 +68,12 @@
                 Console.WriteLine(currentTime);
                 Console.WriteLine("");
                 Thread.Sleep(1000);
+
             }
+            Console.Clear();
+            Console.WriteLine("StopWatch finalizado!");
+            Thread.Sleep(3000);
+            Menu();
         }
     }
 }
